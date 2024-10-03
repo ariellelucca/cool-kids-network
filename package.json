@@ -1,0 +1,31 @@
+{
+  "name": "cool-kids-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariellelucca/cool-kids-network.git"
+  },
+  "author": "Cool Kids Network",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariellelucca/cool-kids-network/issues"
+  },
+  "homepage": "https://github.com/ariellelucca/cool-kids-network#readme",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-concat": "~2.1.0",
+    "grunt-contrib-cssmin": "~5.0.0",
+    "grunt-contrib-jshint": "~3.2.0",
+    "grunt-contrib-sass": "~2.0.0",
+    "grunt-contrib-uglify": "~5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
+    "sass": "^1.78.0",
+    "sass-embedded": "^1.78.0"
+  }
+}
