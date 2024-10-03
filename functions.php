@@ -4,8 +4,9 @@ if (!defined('ABSPATH')) {
     return;
 }
 
+include __DIR__ . '/autoloader.php' ;
 
-include_once get_stylesheet_directory_uri() . '/includes/acf.php';
+$customRoles = new CustomKidRoles;
 
 add_action('wp_enqueue_scripts', 'al_enqueues');
 
