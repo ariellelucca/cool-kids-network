@@ -5,5 +5,5 @@ if (!defined('ABSPATH')) {
 }
 
 spl_autoload_register(function($class) {
-    include get_stylesheet_directory() . '/classes/' . str_replace('\\', '/', $class) . '.class.php';
+    include get_stylesheet_directory() . '/classes/' . str_replace('\\', '/', $class) . '.php';
 });

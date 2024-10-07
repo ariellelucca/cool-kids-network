@@ -6,10 +6,18 @@ if (!defined('ABSPATH')) {
 
 include __DIR__ . '/autoloader.php' ;
 
+// Create new roles
 $customRoles = new CustomKidRoles;
 
-add_action('wp_enqueue_scripts', 'al_enqueues');
+// Create new routes
+$customRoutes = new CustomRoutes;
 
+// Handle user registry
+$userRegister = new NewUserRegister;
+$userRegister->register_routes();
+
+
+add_action('wp_enqueue_scripts', 'al_enqueues');
 function al_enqueues()
 {
 	wp_enqueue_style(
@@ -67,3 +75,18 @@ function al_register_navwalker()
 	}
 }
 add_action('after_setup_theme', 'al_register_navwalker');
+
+
+
+
+// Sign in page - if the user enters wrong login/pwd, dont redirect to wp-login 
+add_action( 'wp_login_failed', 'al_redirect_login_fail' );  // hook failed login
+
+function al_redirect_login_fail( $username ) {
+   $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+   // if there's a valid referrer, and it's not the default log-in screen
+   if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+      wp_redirect( $referrer . '?login=failed' );  // let's append some information (login=failed) to the URL for the theme to use
+      exit;
+   }
+}
