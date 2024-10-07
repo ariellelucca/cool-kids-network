@@ -203,7 +203,8 @@ body {
 :root {
   --primary-blue: #05030e;
   --secondary-blue: #67c2ef;
-  --orange: #cc9282;
+  --peach: #cc9282;
+  --orange: #ffbe58;
   --dark: #1474a4;
   --white: #FFFFFF;
   --black: #F1F1F1;
@@ -242,9 +243,22 @@ html body .wp-block-spacer {
   height: 30px !important;
 }
 html body header {
-  display: none;
+  border-bottom: 2px solid var(--primary-blue);
 }
-html body header .navbar-collapse .menu-item .nav-link {
+html body header .navbar .container-fluid {
+  text-align: center;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  html body header .navbar .container-fluid {
+    justify-content: unset;
+  }
+}
+html body header .navbar .navbar-brand img {
+  margin-left: 10px;
+  max-height: 100px;
+}
+html body header .navbar .navbar-collapse .menu-item .nav-link {
   font-family: "Inria Sans";
   font-size: 1.8rem;
   font-weight: 200;
@@ -255,6 +269,8 @@ html body footer {
   padding: 20px;
   text-align: center;
   color: var(--darkest);
+  background-color: var(--white);
+  font-size: 1.5rem;
 }
 html body main#sign-in {
   width: 100vw;
@@ -277,7 +293,7 @@ html body main#sign-in .login-form {
   height: 70rem;
   border-radius: 50%;
   background-color: var(--primary-blue);
-  box-shadow: 7px 4px var(--orange);
+  box-shadow: 7px 4px var(--peach);
 }
 @media (min-width: 992px) {
   html body main#sign-in .login-form {
@@ -287,7 +303,7 @@ html body main#sign-in .login-form {
 }
 html body main#sign-in .login-form h2 {
   font-weight: bold;
-  color: var(--orange);
+  color: var(--peach);
 }
 html body main#sign-in .login-form #loginform .login-username {
   display: flex;
@@ -338,7 +354,7 @@ html body main#sign-in .login-form #loginform .login-submit {
 }
 html body main#sign-in .login-form #loginform .login-submit .button {
   padding: 0.8rem 2rem;
-  background-color: var(--orange);
+  background-color: var(--peach);
   border: none;
   border-radius: 5px;
   color: var(--black);
@@ -353,7 +369,7 @@ html body main#sign-in .login-form #loginform .login-submit .button {
 }
 html body main#sign-in .register-form h2 {
   color: var(--white);
-  border-bottom: 2px solid var(--orange);
+  border-bottom: 2px solid var(--peach);
 }
 html body main#sign-in .register-form h2 a {
   color: var(--white);
@@ -383,7 +399,7 @@ html body main#sign-up .login-form {
   padding: 3rem;
   border-radius: 10px;
   background-color: var(--primary-blue);
-  box-shadow: 7px 4px var(--orange);
+  box-shadow: 7px 4px var(--peach);
 }
 @media (min-width: 992px) {
   html body main#sign-up .login-form {
@@ -393,7 +409,7 @@ html body main#sign-up .login-form {
 }
 html body main#sign-up .login-form h2 {
   font-weight: bold;
-  color: var(--orange);
+  color: var(--peach);
 }
 html body main#sign-up .login-form #register-form .form-group {
   display: flex;
@@ -407,6 +423,66 @@ html body main#sign-up .login-form #register-form .form-group {
 }
 html body main#sign-up .login-form #register-form .form-group label {
   color: var(--white);
+}
+html body div#home-main {
+  height: auto;
+  background-color: var(--primary-blue);
+}
+@media (min-width: 992px) {
+  html body div#home-main {
+    min-height: 90vh;
+    margin-bottom: 0;
+  }
+}
+html body div#home-main .kid-info {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  height: auto;
+  background-color: var(--orange);
+}
+@media (min-width: 992px) {
+  html body div#home-main .kid-info {
+    min-height: 90vh;
+    margin-bottom: 0;
+  }
+}
+html body div#home-main .kid-info h1 {
+  font-size: 4rem;
+  color: var(--primary-blue);
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  html body div#home-main .kid-info h1 {
+    text-align: left;
+  }
+}
+html body div#home-main .kid-info strong {
+  font-weight: bold;
+}
+html body div#home-main .kid-info ul li {
+  font-size: 2rem;
+  font-weight: 100;
+  color: var(--primary-blue);
+}
+html body div#home-main .kid-dashboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 40vh;
+}
+html body div#home-main .kid-dashboard p {
+  color: var(--white);
+  font-size: 2rem;
+}
+html body div#home-main .kid-dashboard button {
+  background-color: var(--orange);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: var(--primary-blue);
+  text-transform: uppercase;
 }
 
 @media (min-width: 992px) {

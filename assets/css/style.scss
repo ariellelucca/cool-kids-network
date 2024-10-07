@@ -216,7 +216,8 @@
 :root {
     --primary-blue: #05030e;
     --secondary-blue: #67c2ef;
-    --orange: #cc9282;
+    --peach: #cc9282;
+    --orange: #ffbe58;
     --dark: #1474a4;
     --white: #FFFFFF;
     --black: #F1F1F1;
@@ -256,16 +257,32 @@ html {
         }
 
         header {
-            display: none;
+            border-bottom: 2px solid var(--primary-blue);
 
-            .navbar-collapse {
-                .menu-item {
-                    .nav-link {
-                        font-family: "Inria Sans";
-                        font-size: 1.8rem;
-                        font-weight: 200;
-                        color: var(--darkest) !important;
-                        text-transform: uppercase;
+            .navbar {
+                .container-fluid {
+                    text-align: center;
+                    justify-content: center;
+
+                    @media (min-width: 992px) {
+                       justify-content: unset;
+                    }
+                }
+                .navbar-brand {
+                    img {
+                        margin-left: 10px;
+                        max-height: 100px;
+                    }
+                }
+                .navbar-collapse {
+                    .menu-item {
+                        .nav-link {
+                            font-family: "Inria Sans";
+                            font-size: 1.8rem;
+                            font-weight: 200;
+                            color: var(--darkest) !important;
+                            text-transform: uppercase;
+                        }
                     }
                 }
             }
@@ -275,6 +292,8 @@ html {
             padding: 20px;
             text-align: center;
             color: var(--darkest);
+            background-color: var(--white);
+            font-size: 1.5rem;
         }
 
         main#sign-in {
@@ -298,7 +317,7 @@ html {
                 height: 70rem;
                 border-radius: 50%;
                 background-color: var(--primary-blue);
-                box-shadow: 7px 4px var(--orange);
+                box-shadow: 7px 4px var(--peach);
 
                 @media (min-width: 992px) {
                     width: 40rem;
@@ -307,7 +326,7 @@ html {
 
                 h2 {
                     font-weight: bold;
-                    color: var(--orange);
+                    color: var(--peach);
                 }
                 
                 #loginform {
@@ -363,7 +382,7 @@ html {
 
                         .button {
                             padding: 0.8rem 2rem;
-                            background-color: var(--orange);
+                            background-color: var(--peach);
                             border: none;
                             border-radius: 5px;
                             color: var(--black);
@@ -383,7 +402,7 @@ html {
             .register-form {
                 h2 {
                     color: var(--white);
-                    border-bottom: 2px solid var(--orange);
+                    border-bottom: 2px solid var(--peach);
                     a {
                         color: var(--white);
                         font-weight: bold;
@@ -416,7 +435,7 @@ html {
                 padding: 3rem;
                 border-radius: 10px;
                 background-color: var(--primary-blue);
-                box-shadow: 7px 4px var(--orange);
+                box-shadow: 7px 4px var(--peach);
 
                 @media (min-width: 992px) {
                     width: 40rem;
@@ -425,7 +444,7 @@ html {
 
                 h2 {
                     font-weight: bold;
-                    color: var(--orange);
+                    color: var(--peach);
                 }
 
                 #register-form {
@@ -443,6 +462,74 @@ html {
                             color: var(--white);
                         }
                     }
+                }
+            }
+        }
+
+        div#home-main {
+            height: auto;
+            background-color: var(--primary-blue);
+
+            @media (min-width: 992px) {
+                min-height: 90vh;
+                margin-bottom: 0;
+            }
+
+            .kid-info {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
+                height: auto;
+                background-color: var(--orange);
+
+                @media (min-width: 992px) {
+                    min-height: 90vh;
+                    margin-bottom: 0;
+                }
+
+                h1 {
+                    font-size: 4rem;
+                    color: var(--primary-blue);
+                    font-weight: bold;
+                    text-align: center;
+
+                    @media (min-width: 992px) {
+                        text-align: left;
+                    }
+                }
+
+                strong {
+                    font-weight: bold;
+                }
+
+                ul {
+                    li {
+                        font-size: 2rem;
+                        font-weight: 100;
+                        color: var(--primary-blue);
+                    }
+                }
+            }
+
+            .kid-dashboard {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                height: 40vh;
+
+                p {
+                    color: var(--white);
+                    font-size: 2rem;
+                }
+
+                button {
+                    background-color: var(--orange);
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-family: "Inria Sans";
+                    color: var(--primary-blue);
+                    text-transform: uppercase;
                 }
             }
         }

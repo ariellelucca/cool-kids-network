@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     return;
 }
 
-include __DIR__ . '/autoloader.php' ;
+include_once __DIR__ . '/autoloader.php' ;
 
 // Create new roles
 $customRoles = new CustomKidRoles;
