@@ -80,7 +80,7 @@ class NewUserRegister extends WP_REST_Controller {
         }
 
         // Set the user role as cool_kid
-        $user = new WP_User($user_id);
+        $user = new \WP_User($user_id);
         $user->set_role($role);
 
         // Update user meta data

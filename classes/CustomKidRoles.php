@@ -34,7 +34,6 @@ class CustomKidRoles {
             'publish_posts' => false,
             'manage_categories' => false,
         ]);
-
         add_role('cooler_kid', 'Cooler Kid', [
             'read' => false,
             'create_posts' => false,
@@ -42,6 +41,7 @@ class CustomKidRoles {
             'edit_others_posts' => false,
             'publish_posts' => false,
             'manage_categories' => false,
+            'list_users' => true, // Add capability to list users
         ]);
 
         add_role('coolest_kid', 'Coolest Kid', [
@@ -51,6 +51,7 @@ class CustomKidRoles {
             'edit_others_posts' => false,
             'publish_posts' => false,
             'manage_categories' => false,
+            'list_users' => true, // Add capability to list users
         ]);
 
     }

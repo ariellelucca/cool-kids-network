@@ -203,7 +203,7 @@ body {
 :root {
   --primary-blue: #05030e;
   --secondary-blue: #67c2ef;
-  --peach: #cc9282;
+  --peach: #f0a97f;
   --orange: #ffbe58;
   --dark: #1474a4;
   --white: #FFFFFF;
@@ -439,7 +439,7 @@ html body div#home-main .kid-info {
   padding-bottom: 20px;
   margin-bottom: 30px;
   height: auto;
-  background-color: var(--orange);
+  background-color: var(--peach);
 }
 @media (min-width: 992px) {
   html body div#home-main .kid-info {
@@ -466,23 +466,43 @@ html body div#home-main .kid-info ul li {
   font-weight: 100;
   color: var(--primary-blue);
 }
-html body div#home-main .kid-dashboard {
+html body div#home-main .kid-list {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  height: 40vh;
+  justify-content: flex-start;
+  min-height: 40vh;
 }
-html body div#home-main .kid-dashboard p {
+html body div#home-main .kid-list p {
   color: var(--white);
   font-size: 2rem;
 }
-html body div#home-main .kid-dashboard button {
-  background-color: var(--orange);
+html body div#home-main .kid-list button {
+  background-color: var(--peach);
   padding: 10px 20px;
   border-radius: 5px;
+  font-family: "Inria Sans";
   color: var(--primary-blue);
   text-transform: uppercase;
+}
+html body div#home-main .kid-list #list-kids {
+  margin-top: 40px;
+}
+html body div#home-main .kid-list #list-kids .card-kid {
+  margin-bottom: 20px;
+}
+html body div#home-main .kid-list #list-kids .card-kid .card-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+html body div#home-main .kid-list #list-kids .card-kid .card-body {
+  color: var(--primary-blue);
+}
+html body div#home-main .kid-list #list-kids .card-kid .card-body p {
+  font-weight: 100;
+  color: var(--primary-blue);
+  font-size: 2rem;
 }
 
 @media (min-width: 992px) {
