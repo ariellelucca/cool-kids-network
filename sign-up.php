@@ -33,46 +33,51 @@ wp_head();
 </main>
 
 <?php
-wp_footer();
-
+get_footer();
 
 ?>
 
 <!-- Script added directly on the page, so it wont load when not needed -->
 <script>
 
-    var nonce = '<?php echo wp_create_nonce('wp_rest') ?>';
+    jQuery(function ($) {
+        var nonce = '<?php echo wp_create_nonce('wp_rest') ?>';
 
-    jQuery('#register-form').on('submit', function (e) {
-        e.preventDefault();
+        $('#register-form').on('submit', function (e) {
+            e.preventDefault();
 
-        var formData = new FormData(this);
+            var formData = new FormData(this);
 
-        jQuery.ajax({
-            method: "POST",
-            url: '<?php echo get_rest_url(null, 'cool-kids-network/v1/user-register'); ?>',
-            headers: { 'X-WP-Nonce': nonce },
-            data: formData,
-            processData: false,
-            contentType: false,
-            beforeSend: function () {
-                // Disable button send
-                jQuery('button[type=submit]').prop('disabled', true);
+            $.ajax({
+                method: "POST",
+                url: '<?php echo get_rest_url(null, 'cool-kids-network/v1/user-register'); ?>',
+                headers: { 'X-WP-Nonce': nonce },
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    // Disable button send
+                    $('input[type=submit]').prop('disabled', true);
+                },
+                success: function (response) {
+                    if ('User created successfully' === response) {
+                        $('#modal-updated').modal('show');
+                        $('.request-response').html('Login created. <a href="/sign-in" title="Sign in page" aria-label="Sign in page">Click here</a> and go to signin page');
+                    }
+                    else {
+                        $('#modal-updated').modal('show');
+                        $('.request-response').html('Oooops, something went wrong!');
+                    }
 
-
-                // setting a timeout
-            },
-            success: function (response) {
-                // Form reset
-
-                // Modal telling user got an email with protocol
-
-
-                console.log('Success:', response);
-            },
-            error: function (error) {
-                console.log('Error:', error);
-            }
+                    $('#register-form')[0].reset();
+                    $('input[type=submit]').prop('disabled', false);
+                },
+                error: function (error) {
+                    $('#modal-updated').modal('show');
+                    $('.request-response').html('Oooops, something went wrong!');
+                }
+            });
         });
     });
+
 </script>

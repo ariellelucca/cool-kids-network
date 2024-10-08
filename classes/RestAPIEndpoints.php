@@ -18,7 +18,6 @@ class RestAPIEndpoints
 
     function register_rest_api()
     {
-        var_dump( is_user_logged_in());
         register_rest_route(
             'ckn/v1',
             'manage-role',

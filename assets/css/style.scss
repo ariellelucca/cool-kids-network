@@ -293,6 +293,19 @@ html {
             color: var(--darkest);
             background-color: var(--white);
             font-size: 1.5rem;
+
+            .modal {
+                .modal-body {
+                    .request-response{
+                        font-size: 3rem;
+                    }
+                }
+                .modal-footer {
+                    button{
+                        font-size: 3rem;
+                    }
+                }
+            }
         }
 
         main#sign-in {
@@ -372,8 +385,8 @@ html {
                         }
 
                         input {
-                            width: 40px;
-                            height: 40px;
+                            width: 2rem;
+                            height: 2rem;
                         }
                     }
                     .login-submit {

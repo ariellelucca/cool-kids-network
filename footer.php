@@ -12,6 +12,8 @@
 </footer>
 
 <?php
+wp_footer();
+
 // Only displays if current user is admin
 if (current_user_can('manage_options') && is_front_page()) { ?>
     <script>
@@ -20,7 +22,7 @@ if (current_user_can('manage_options') && is_front_page()) { ?>
 
         jQuery(function ($) {
             // Closes modal
-            $('#modal-close').on('click', function() {
+            $('#modal-close').on('click', function () {
                 $('.modal').modal('hide');
             })
 
@@ -61,19 +63,19 @@ if (current_user_can('manage_options') && is_front_page()) { ?>
             });
         });
     </script>
+    <?php
 
-    <div id="modal-updated" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p class="request-response"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="modal-close" class="btn btn-secondary">Close</button>
-                </div>
+} ?>
+
+<div id="modal-updated" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="request-response"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modal-close" class="btn btn-secondary">Close</button>
             </div>
         </div>
     </div>
-    <?php
-
-}
+</div>

@@ -215,7 +215,6 @@ html {
   margin-top: 0 !important;
 }
 html body {
-  background-color: var(--dark);
   font-family: "Inria Sans";
   font-size: 1.4rem;
 }
@@ -271,6 +270,12 @@ html body footer {
   color: var(--darkest);
   background-color: var(--white);
   font-size: 1.5rem;
+}
+html body footer .modal .modal-body .request-response {
+  font-size: 3rem;
+}
+html body footer .modal .modal-footer button {
+  font-size: 3rem;
 }
 html body main#sign-in {
   width: 100vw;
@@ -346,8 +351,8 @@ html body main#sign-in .login-form #loginform .login-remember label {
   color: var(--white);
 }
 html body main#sign-in .login-form #loginform .login-remember input {
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
 }
 html body main#sign-in .login-form #loginform .login-submit {
   text-align: center;
