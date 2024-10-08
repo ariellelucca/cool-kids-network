@@ -22,7 +22,7 @@ class NewUserRegister extends WP_REST_Controller {
             ]);
         });
      }
-
+ 
     public function user_register($data) {
         $headers = $data->get_headers();
         $params = $data->get_params();

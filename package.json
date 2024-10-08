@@ -2,9 +2,9 @@
   "name": "cool-kids-network",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lint-staged",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,11 @@
     "url": "https://github.com/ariellelucca/cool-kids-network/issues"
   },
   "homepage": "https://github.com/ariellelucca/cool-kids-network#readme",
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+    "opsway/psr12-strict-coding-standard": "^1.0",
+    "squizlabs/php_codesniffer": "3.*"
+  },
   "devDependencies": {
     "grunt": "^1.6.1",
     "grunt-contrib-concat": "~2.1.0",
@@ -26,6 +31,38 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
     "sass": "^1.78.0",
-    "sass-embedded": "^1.78.0"
+    "sass-embedded": "^1.78.0",
+    "eslint": "^8.38.0",
+    "phplint": "2.0.5",
+    "eslint-auto-fix": "^1.0.4",
+    "eslint-config-jquery": "^3.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jquery": "^1.5.1",
+    "eslint-plugin-no-jquery": "^2.7.0",
+    "git-commit-msg-linter": "^4.9.4",
+    "git-conventional-commits": "^1.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier-config-standard": "^5.0.0",
+    "@prettier/plugin-php": "0.19.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "!(*min).js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "!(*min).css": [
+      "prettier --write"
+    ],
+    "**/*.php": [
+      "prettier --write",
+      "prettier --write --parser html",
+      "phplint"
+    ]
   }
 }
