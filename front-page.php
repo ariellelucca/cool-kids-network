@@ -61,11 +61,9 @@ get_header(); ?>
                             name="Become a Cooler Kid">Click me and pay to upgrade</button>
 
                     <?php }
-
-                    if (in_array('cooler_kid', $role) || in_array('coolest_kid', $role)) { ?>
-                        
-                        <?php get_template_part('template-parts/list', 'kids'); ?>
-                    <?php }
+                    if (in_array('administrator', $role)  || in_array('cooler_kid', $role) || in_array('coolest_kid', $role)) {
+                        get_template_part('template-parts/list', 'kids');
+                    }                  
                     ?>
                 </div>
             </main>

@@ -12,6 +12,9 @@ $customRoles = new CustomKidRoles;
 // Create new routes
 $customRoutes = new CustomRoutes;
 
+// Test Endpoints
+$customEndpoints = new RestAPIEndpoints;
+
 // Handle user registry
 $userRegister = new NewUserRegister;
 $userRegister->register_routes();
@@ -43,9 +46,10 @@ function al_enqueues()
 
 	wp_enqueue_script(
 		'theme-js',
-		get_stylesheet_directory_uri() . '/assets/js/scripts.min.js',
+		get_stylesheet_directory_uri() . '/assets/js/scripts.js',
 		array('jquery')
 	);
+	
 }
 
 function al_register_menus()
@@ -75,9 +79,6 @@ function al_register_navwalker()
 	}
 }
 add_action('after_setup_theme', 'al_register_navwalker');
-
-
-
 
 // Sign in page - if the user enters wrong login/pwd, dont redirect to wp-login 
 add_action( 'wp_login_failed', 'al_redirect_login_fail' );  // hook failed login

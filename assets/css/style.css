@@ -504,6 +504,13 @@ html body div#home-main .kid-list #list-kids .card-kid .card-body p {
   color: var(--primary-blue);
   font-size: 2rem;
 }
+html body div#home-main .kid-list #list-kids .card-kid .card-body .change-role {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--peach);
+  padding: 5px;
+  background-color: rgba(240, 169, 127, 0.3019607843);
+}
 
 @media (min-width: 992px) {
   html body h2 {

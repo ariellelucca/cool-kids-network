@@ -36,8 +36,4 @@ class CustomRoutes {
         $vars[] = 'custom_sign_up';
         return $vars;
     }
-
-
-    
-
 }
