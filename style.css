@@ -1,0 +1,13 @@
+/*
+* Theme Name: Cool Kids Network
+* Author: Arielle Lucca
+* Author URL: https://www.linkedin.com/in/arielle-lucca/
+* Text Domain: cool-kids-network
+* Domain Path: /languages
+*/
+
+:root {
+    --primary-blue: #1474a4;
+    --secondary-blue: #67c2ef;
+    --orange: #ffbe58
+}

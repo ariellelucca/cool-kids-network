@@ -1,0 +1,402 @@
+  body {
+    --google-font-color-bungeetint:none;
+  }
+
+:root {
+    --primary-blue: #05030e;
+    --secondary-blue: #67c2ef;
+    --peach: #f0a97f;
+    --orange: #ffbe58;
+    --dark: #1474a4;
+    --white: #FFFFFF;
+    --black: #F1F1F1;
+}
+
+html {
+
+    font-size: 62.5%;
+    margin-top: 0 !important;
+
+    body {
+        font-family: "Inria Sans";
+        font-size: 1.4rem;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Amatic SC";
+            font-weight: 200;
+        }
+        h2 {
+            font-size: 3rem;
+
+            @media (min-width: 992px) {
+                font-size: 5rem;
+            }
+        }
+        h3 {
+            font-size: 3rem;
+
+            @media (min-width: 992px) {
+                font-size: 3rem;
+            }
+        }
+        
+        .wp-block-spacer {
+            height: 30px !important;
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-blue);
+
+            .navbar {
+                .container-fluid {
+                    text-align: center;
+                    justify-content: space-between;
+
+                    @media (min-width: 992px) {
+                       justify-content: space-between;
+                    }
+
+                    #logout {
+                        background-color: var(--primary-blue);
+                        border-radius: 5px;
+                        padding: 10px 20px;
+                        color: var(--white);
+                        text-decoration: none;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        font-family: "Inria Sans";
+                    }
+                }
+                .navbar-brand {
+                    img {
+                        margin-left: 10px;
+                        max-height: 100px;
+                    }
+                }
+                .navbar-collapse {
+                    .menu-item {
+                        .nav-link {
+                            font-family: "Inria Sans";
+                            font-size: 1.8rem;
+                            font-weight: 200;
+                            color: var(--darkest) !important;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: var(--darkest);
+            background-color: var(--white);
+            font-size: 1.5rem;
+
+            .dev-arielle {
+                a {
+                    font-weight: bold;
+                    color: var(--peach);
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .modal {
+            .modal-dialog {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .modal-content {
+                    .modal-body {
+                        .request-response{
+                            font-size: 2rem;
+
+                            a {
+                                color: var(--orange);
+                                text-decoration: none;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    .modal-footer {
+                        button{
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        main#sign-in {
+            width: 100%;
+            height: calc(100vh - 210px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 50px;
+            background: url('../../assets/img/home-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;    
+
+            .login-form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 32rem;
+                height: 32rem;
+                border-radius: 50%;
+                background-color: var(--primary-blue);
+                box-shadow: 7px 4px var(--peach);
+
+                @media (min-width: 992px) {
+                    width: 40rem;
+                    height: 40rem;
+                }
+
+                h2 {
+                    font-weight: bold;
+                    color: var(--peach);
+                }
+                
+                #loginform {
+                    .login-username {
+                        display: flex;
+                        flex-direction: column;
+
+                        font-size: 2rem;
+
+                        @media (min-width: 992px) {
+                            font-size: 2rem;
+                        }
+
+                        label {
+                            color: var(--white);
+                        }
+                    }
+                    .login-password {
+                        display: flex;
+                        flex-direction: column;
+
+                        font-size: 2rem;
+
+                        @media (min-width: 992px) {
+                            font-size: 2rem;
+                        }
+
+                        label {
+                            color: var(--white);
+                        }
+                    }
+                    .login-remember {
+                        display: none;
+                        font-size: 2rem;
+                    }
+                    .login-submit {
+                        text-align: center;
+
+                        .button {
+                            padding: 0.8rem 2rem;
+                            background-color: var(--peach);
+                            border: none;
+                            border-radius: 5px;
+                            color: var(--black);
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            font-size: 2rem;
+
+                            @media (min-width: 992px) {
+                                font-size: 2rem;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .register-form {
+                h2 {
+                    color: var(--white);
+                    border-bottom: 2px solid var(--peach);
+                    a {
+                        color: var(--white);
+                        font-weight: bold;
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        main#sign-up {
+            width: 100%;
+            height: calc(100vh - 210px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 50px;
+            background: url('../../assets/img/home-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;    
+
+            .login-form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 70rem;
+                height: 50rem;
+                padding: 3rem;
+                border-radius: 10px;
+                background-color: var(--primary-blue);
+                box-shadow: 7px 4px var(--peach);
+
+                @media (min-width: 992px) {
+                    width: 40rem;
+                    height: 40rem;
+                }
+
+                h2 {
+                    font-weight: bold;
+                    color: var(--peach);
+                }
+
+                #register-form {
+                    .form-group {
+                        display: flex;
+                        flex-direction: column;
+
+                        font-size: 4rem;
+
+                        @media (min-width: 992px) {
+                            font-size: 2rem;
+                        }
+
+                        label {
+                            color: var(--white);
+                        }
+                    }
+                }
+            }
+        }
+
+        div#home-main {
+            height: auto;
+            background-color: var(--primary-blue);
+
+            @media (min-width: 992px) {
+                min-height: 90vh;
+                margin-bottom: 0;
+            }
+
+            .kid-info {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-bottom: 30px;
+                height: auto;
+                background-color: var(--peach);
+
+                @media (min-width: 992px) {
+                    min-height: 90vh;
+                    margin-bottom: 0;
+                }
+
+                h1 {
+                    font-size: 4rem;
+                    color: var(--primary-blue);
+                    font-weight: bold;
+                    text-align: center;
+
+                    @media (min-width: 992px) {
+                        text-align: left;
+                    }
+                }
+
+                strong {
+                    font-weight: bold;
+                }
+
+                ul {
+                    li {
+                        font-size: 2rem;
+                        font-weight: 100;
+                        color: var(--primary-blue);
+                    }
+                }
+            }
+
+            .kid-list {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: flex-start;
+                min-height: 40vh;
+
+                p {
+                    color: var(--white);
+                    font-size: 2rem;
+                }
+
+                button {
+                    background-color: var(--peach);
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-family: "Inria Sans";
+                    color: var(--primary-blue);
+                    text-transform: uppercase;
+                }
+
+                #list-kids {
+                    margin-top: 40px;
+
+                    .card-kid {
+                        margin-bottom: 20px;
+                        .card-title {
+                            font-size: 3rem;
+                            font-weight: bold;
+                            text-decoration: underline;
+                        }
+
+                        .card-body {
+                            color: var(--primary-blue);
+    
+                            p {
+                                font-weight: 100;
+                                color: var(--primary-blue);
+                                font-size: 2rem;
+                            }
+
+                            .change-role {
+                                display: flex;
+                                flex-direction: column;
+                                border: 1px solid var(--peach);
+                                padding: 5px;
+                                background-color: #f0a97f4d;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 992px) {
+    html {
+        body {
+            h2 {
+                font-size: 3rem;
+            }
+            h3 {
+                font-size: 2rem;
+            }
+        }
+    }    
+}
