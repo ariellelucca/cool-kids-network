@@ -3,6 +3,8 @@
  * Template part that lists all cool kids
  */
 
+use CoolKidsNetwork\Classes\ClassKid\ClassKid;
+
 $current_user = wp_get_current_user();
 
 $kid = new ClassKid;

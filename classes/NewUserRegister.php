@@ -1,9 +1,15 @@
 <?php
+/**
+ * This file handles the methods for user registration
+ */
+
+namespace CoolKidsNetwork\Classes\NewUserRegister;
+
 if (!defined('ABSPATH')) {
     die();
 }
 
-class NewUserRegister extends WP_REST_Controller {
+class NewUserRegister extends \WP_REST_Controller {
     public function __construct() {
         $this->register_routes();
 
@@ -30,12 +36,12 @@ class NewUserRegister extends WP_REST_Controller {
 
         // If don't verify nonce, throws error
         if (!wp_verify_nonce($nonce, 'wp_rest')) {
-            return new WP_REST_Response('Nonce validation error', 422);
+            return new \WP_REST_Response('Nonce validation error', 422);
         }
 
         // If email is empty, throws error
         if (empty($params['email'])) {
-            return new WP_REST_Response('Email cant be empty', 422);
+            return new \WP_REST_Response('Email cant be empty', 422);
         }
 
         // Verify if valid email and if is not already in use
@@ -43,7 +49,7 @@ class NewUserRegister extends WP_REST_Controller {
         $user = get_user_by('email', $email);
 
         if ($user) {
-            return new WP_REST_Response('Email is already in use', 422);
+            return new \WP_REST_Response('Email is already in use', 422);
         }
 
         // Creates a brand new user
@@ -56,7 +62,7 @@ class NewUserRegister extends WP_REST_Controller {
         ));
 
         if (is_wp_error($response)) {
-            return new WP_REST_Response('Error performing AJAX request', 500);
+            return new \WP_REST_Response('Error performing AJAX request', 500);
         }
 
         $response_body = wp_remote_retrieve_body($response);
@@ -64,7 +70,7 @@ class NewUserRegister extends WP_REST_Controller {
         $response_data = json_decode($response_body, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            return new WP_REST_Response('Error parsing JSON response', 500);
+            return new \WP_REST_Response('Error parsing JSON response', 500);
         }
 
         $first_name = $response_data['results'][0]['name']['first'];
@@ -76,7 +82,7 @@ class NewUserRegister extends WP_REST_Controller {
         $user_id = wp_create_user($email, $password, $email);
 
         if (is_wp_error($user_id)) {
-            return new WP_REST_Response('Error creating user', 500);
+            return new \WP_REST_Response('Error creating user', 500);
         }
 
         // Set the user role as cool_kid
@@ -89,7 +95,7 @@ class NewUserRegister extends WP_REST_Controller {
         update_user_meta($user_id, 'country', $country);
 
         // Return success response
-        return new WP_REST_Response('User created successfully', 200);
+        return new \WP_REST_Response('User created successfully', 200);
 
     }
 }

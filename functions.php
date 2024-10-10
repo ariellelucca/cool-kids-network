@@ -1,13 +1,15 @@
 <?php
 
+
 if (!defined('ABSPATH')) {
     return;
 }
 
-include_once __DIR__ . '/autoloader.php' ;
+require __DIR__ . '/autoloader.php' ;
 
-// Create new roles
-$customRoles = new CustomKidRoles;
+use CoolKidsNetwork\Classes\RestAPIEndpoints\RestAPIEndpoints;
+use CoolKidsNetwork\Classes\CustomRoutes\CustomRoutes;
+use CoolKidsNetwork\Classes\NewUserRegister\NewUserRegister; 
 
 // Create new routes
 $customRoutes = new CustomRoutes;
@@ -20,7 +22,7 @@ $userRegister = new NewUserRegister;
 $userRegister->register_routes();
 
 
-add_action('wp_enqueue_scripts', 'al_enqueues');
+// Enqueues Bootstrap and custom js and css files
 function al_enqueues()
 {
 	wp_enqueue_style(
@@ -41,7 +43,12 @@ function al_enqueues()
 
 	wp_enqueue_style(
 		'theme-style',
-		get_stylesheet_directory_uri() . '/assets/css/style.css',
+		get_stylesheet_directory_uri() . '/assets/css/style.min.css',
+	);
+
+	wp_enqueue_style(
+		'theme-fonts',
+		get_stylesheet_directory_uri() . '/assets/css/fonts.min.css',
 	);
 
 	wp_enqueue_script(
@@ -49,8 +56,8 @@ function al_enqueues()
 		get_stylesheet_directory_uri() . '/assets/js/scripts.js',
 		array('jquery')
 	);
-	
 }
+add_action('wp_enqueue_scripts', 'al_enqueues');
 
 function al_register_menus()
 {
@@ -60,29 +67,7 @@ function al_register_menus()
 }
 add_action('after_setup_theme', 'al_register_menus');
 
-function al_theme_setup()
-{
-	add_theme_support('menus');
-	add_theme_support('post-thumbnails', ['posts', 'projects']);
-	add_theme_support('widgets');
-}
-add_action('after_setup_theme', 'al_theme_setup');
-
-function al_register_navwalker()
-{
-	if (!file_exists(get_template_directory() . '/assets/bootstrap/navwalker.php')) {
-		// file does not exist... return an error.
-		return new WP_Error('class-wp-bootstrap-navwalker-missing', __('It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker'));
-	} else {
-		// file exists... require it.
-		require_once get_template_directory() . '/assets/bootstrap/navwalker.php';;
-	}
-}
-add_action('after_setup_theme', 'al_register_navwalker');
-
 // Sign in page - if the user enters wrong login/pwd, dont redirect to wp-login 
-add_action( 'wp_login_failed', 'al_redirect_login_fail' );  // hook failed login
-
 function al_redirect_login_fail( $username ) {
    $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
    // if there's a valid referrer, and it's not the default log-in screen
@@ -91,3 +76,22 @@ function al_redirect_login_fail( $username ) {
       exit;
    }
 }
+add_action( 'wp_login_failed', 'al_redirect_login_fail' );  // hook failed login
+
+
+// When kid logout, redirect to home
+function al_redirect_after_logout(){
+  wp_safe_redirect( home_url() );
+  exit;
+}
+add_action('wp_logout','al_redirect_after_logout');
+
+
+// Preload font CSS file
+function al_font_preload( $html, $handle ){
+    if (strcmp($handle, 'theme-fonts') == 0) {
+        $html = str_replace("rel='stylesheet'", "rel='preload' as='style' onload='this.rel=\"stylesheet\"'", $html);
+    }
+    return $html;
+}
+add_filter( 'style_loader_tag',  'al_font_preload', 10, 2 );

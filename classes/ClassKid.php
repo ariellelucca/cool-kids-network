@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * This file defines the Kid class with basic methods
+ */
+
+namespace CoolKidsNetwork\Classes\ClassKid;
+
 class ClassKid {
 
     function getName($currentuser) {
