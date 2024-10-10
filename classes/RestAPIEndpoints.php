@@ -27,7 +27,7 @@ class RestAPIEndpoints
                 $this,
                 'handle_manage_role'
             ],
-            // Only allow logged-in users with admin privileges
+            // Only allow loggesd-in users with admin privileges
             'permission_callback' => function () { 
                 return (is_user_logged_in() && current_user_can('manage_options'));
             }
