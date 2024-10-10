@@ -18,8 +18,10 @@ module.exports = function(grunt) {
     // config options for the cssmin task to minify stylesheets
     cssmin: {
       minify: {
-        assets: ['assets/css/style.css'],
-        dest: 'assets/css/style.min.css', // Corrected to a single output file
+        files: {
+          'assets/css/style.min.css': 'assets/css/style.css', // Compile SCSS to CSS
+          'assets/css/fonts.min.css': 'assets/css/fonts.css' // Compile SCSS to CSS
+        }
       }
     },
     sass: {
@@ -29,7 +31,8 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          'assets/css/style.css': 'assets/css/style.scss' // Compile SCSS to CSS
+          'assets/css/style.css': 'assets/css/style.scss', // Compile SCSS to CSS
+          'assets/css/fonts.css': 'assets/css/fonts.scss' // Compile SCSS to CSS
         }
       }
     },
@@ -55,10 +58,6 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      js: {
-        files: ['assets/js/*.js'],
-        tasks: ['jshint', 'uglify', 'concat']
-      },
       css: {
         files: ['assets/css/*.scss'],
         tasks: ['sass', 'cssmin']
