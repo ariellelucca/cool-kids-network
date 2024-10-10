@@ -1,19 +1,23 @@
 <?php
-/*
- * This file defines custom user roles
+
+/**
+ * This class defines custom user roles
  */
+
+namespace CoolKidsNetwork\Classes\CustomRoles;
 
 if (!defined('ABSPATH')) {
     die();
 }
 
-class CustomKidRoles {
+final class CustomRoles
+{
     function __construct() {
         add_action('init', [$this, 'remove_basic_roles']);        
         add_action('init', [$this, 'create_roles']);
     }
 
-    function remove_basic_roles() 
+    function remove_basic_roles()
     {
         global $wp_roles;
 
@@ -23,7 +27,7 @@ class CustomKidRoles {
         $wp_roles->remove_role('editor');
     }
 
-    function create_roles() 
+    function create_roles()
     {
 
         add_role('cool_kid', 'Cool Kid', [
@@ -55,5 +59,4 @@ class CustomKidRoles {
         ]);
 
     }
-
 }
