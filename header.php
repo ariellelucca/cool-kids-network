@@ -4,7 +4,11 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
-    <meta name="description" content="<?php bloginfo('description'); ?>">
+    <?php if (!empty(bloginfo('description'))) { ?>
+        <meta name="description" content="<?php bloginfo('description'); ?>">
+    <?php } else { ?>
+        <meta name="description" content="<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
+    <?php } ?>
     <?php
     if (!is_front_page()) { ?>
         <?php if (file_exists(get_template_directory() . '/assets/img/home-bg.jpg')) { ?>
