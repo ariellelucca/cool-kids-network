@@ -15,7 +15,7 @@ class ActionLogger {
     protected static $log = null;
 
     public function __construct() {
-        add_action('init', [$this, 'file_checker']);
+        add_action('after_switch_theme', [$this, 'file_checker']);
         add_action('admin_menu', [$this, 'menu_page']);
     }
 
