@@ -4,7 +4,7 @@ get_header(); ?>
 
 <main id="primary" class="site-main">
     <div id="content" class="container">
-        <h1>404 Page</h1>
+        <h1>Archive Page</h1>
     </div>
 </main>
 

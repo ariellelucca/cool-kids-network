@@ -10,6 +10,14 @@ require __DIR__ . '/autoloader.php' ;
 use CoolKidsNetwork\Classes\RestAPIEndpoints\RestAPIEndpoints;
 use CoolKidsNetwork\Classes\CustomRoutes\CustomRoutes;
 use CoolKidsNetwork\Classes\NewUserRegister\NewUserRegister; 
+use CoolKidsNetwork\Classes\ActionLogger\ActionLogger;
+use CoolKidsNetwork\Classes\Logger\Logger;
+
+// Instantiate logger
+$logger = new ActionLogger;
+
+const LOGGER = new Logger();
+
 
 // Create new routes
 $customRoutes = new CustomRoutes;
@@ -20,6 +28,12 @@ $customEndpoints = new RestAPIEndpoints;
 // Handle user registry
 $userRegister = new NewUserRegister;
 $userRegister->register_routes();
+
+add_action( 'wp_login', 'user_login_success', 10, 2 );
+
+function user_login_success($user_login, $user): void {
+	\LOGGER->add_entry("User login successful $user_login");
+}
 
 
 // Enqueues Bootstrap and custom js and css files
@@ -81,10 +95,16 @@ add_action( 'wp_login_failed', 'al_redirect_login_fail' );  // hook failed login
 
 // When kid logout, redirect to home
 function al_redirect_after_logout(){
-  wp_safe_redirect( home_url() );
-  exit;
+	wp_safe_redirect( home_url() );
+	exit;
 }
 add_action('wp_logout','al_redirect_after_logout');
+
+function al_user_logout_log() {
+	$user = wp_get_current_user();
+	LOGGER->add_entry("User ID $user->ID logged out");
+}
+add_action('clear_auth_cookie', 'al_user_logout_log', 10);
 
 
 // Preload font CSS file
@@ -95,3 +115,9 @@ function al_font_preload( $html, $handle ){
     return $html;
 }
 add_filter( 'style_loader_tag',  'al_font_preload', 10, 2 );
+
+function al_login_failed($username, $error){
+	LOGGER->add_entry("Login attempt failed for user $username");
+	wp_redirect( home_url() . '/?login=failed' );
+}
+add_action( 'wp_login_failed', 'al_login_failed', 1, 2);
