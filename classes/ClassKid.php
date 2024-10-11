@@ -14,25 +14,36 @@ if (!defined('ABSPATH')) {
 class ClassKid {
 
     function getName($currentuser) {
-        $firstname = $currentuser->user_firstname;
-        return $firstname;
+        if (!empty($currentuser->user_firstname)) {
+            $firstname = $currentuser->user_firstname;
+            return $firstname;
+        }
+        return '';
     }
 
     function getLastname($currentuser) {
-        $lastname = $currentuser->user_lastname;
-        return $lastname;
+        if (!empty($currentuser->user_lastname)) {
+            $user_lastname = $currentuser->user_lastname;
+            return $user_lastname;
+        }
+        return '';
     }
 
     function getEmail($currentuser) {
-        $email = $currentuser->user_email;
-        return $email;
+        if (!empty($currentuser->user_email)) {
+            $user_email = $currentuser->user_email;
+            return $user_email;
+        }
+        return '';
     }
 
     function getCountry($currentuser) {
         $user_meta = get_userdata($currentuser->ID);
-
-        $country = $user_meta->country;
-        return $country;
+        if (!empty($user_meta)) {
+            $country = $user_meta->country;
+            return $country;
+        }
+        return '';
     }
 
     function getRole($currentuser) {

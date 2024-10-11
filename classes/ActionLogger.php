@@ -24,9 +24,13 @@ class ActionLogger {
         $logFile = get_template_directory() . '/logs/customkidslog.log';
 
         if (!file_exists($logFile)) {
-            touch($logFile);
-            $permissions = 0755;
-            $this->set_file_permissions($logFile, $permissions);
+            if (touch($logFile)) {
+                $permissions = 0755;
+                $this->set_file_permissions($logFile, $permissions);
+            }
+            else {
+                error_log("Creation of log file failed");
+            }
         }
     }
     function set_file_permissions($file_path, $permissions) {
@@ -39,7 +43,6 @@ class ActionLogger {
         } else {
             error_log("File $file_path does not exists.");
         }
-        die();
     }
 
 
