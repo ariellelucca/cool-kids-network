@@ -6,6 +6,11 @@
 
 namespace CoolKidsNetwork\Classes\ClassKid;
 
+if (!defined('ABSPATH')) {
+    die();
+}
+
+
 class ClassKid {
 
     function getName($currentuser) {

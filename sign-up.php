@@ -28,6 +28,8 @@ get_header(); ?>
                 <input type="submit" value="Register">
             </div>
         </form>
+        <p>Or get back to <a href="/sign-in" title="Link to login page" aria-label="Link to login page">login page</a></p>
+        
     </div>
 </main>
 
@@ -65,7 +67,7 @@ get_footer();
                     }
                     else {
                         $('#modal-updated').modal('show');
-                        $('.request-response').html('Oooops, something went wrong!');
+                        $('.request-response').html('Oooops, something went wrong! Refresh the page and try again.');
                         $('input[type=submit]').prop('disabled', false);
                     }
 

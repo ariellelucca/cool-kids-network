@@ -70,7 +70,9 @@ html {
                 .navbar-brand {
                     img {
                         margin-left: 10px;
-                        max-height: 100px;
+                        max-height: 50px;
+                        width: auto;
+                        filter: saturate(0.6) hue-rotate(330deg);
                     }
                 }
                 .navbar-collapse {
@@ -133,7 +135,7 @@ html {
 
         main#sign-in {
             width: 100%;
-            height: calc(100vh - 210px);
+            height: calc(100vh - 180px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -235,7 +237,7 @@ html {
 
         main#sign-up {
             width: 100%;
-            height: calc(100vh - 210px);
+            height: calc(100vh - 180px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -281,6 +283,17 @@ html {
                         label {
                             color: var(--white);
                         }
+                    }
+                }
+
+                p {
+                    color: var(--white);
+                    font-size: 1.5rem;
+                    margin-top: 20px;
+
+                    a {
+                        text-decoration: none;
+                        color: var(--peach);
                     }
                 }
             }
@@ -361,6 +374,7 @@ html {
                             font-size: 3rem;
                             font-weight: bold;
                             text-decoration: underline;
+                            color: var(--peach);
                         }
 
                         .card-body {

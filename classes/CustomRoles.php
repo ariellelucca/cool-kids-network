@@ -6,12 +6,15 @@
 
 namespace CoolKidsNetwork\Classes\CustomRoles;
 
+use CoolKidsNetwork\Classes\Logger\Logger;
+
 if (!defined('ABSPATH')) {
     die();
 }
 
 final class CustomRoles
 {
+        
     function __construct() {
         add_action('init', [$this, 'remove_basic_roles']);        
         add_action('init', [$this, 'create_roles']);
@@ -25,6 +28,9 @@ final class CustomRoles
         $wp_roles->remove_role('contributor');
         $wp_roles->remove_role('author');
         $wp_roles->remove_role('editor');
+
+        LOGGER->add_entry('Removed basic roles.');
+
     }
 
     function create_roles()
@@ -57,6 +63,6 @@ final class CustomRoles
             'manage_categories' => false,
             'list_users' => true, // Add capability to list users
         ]);
-
+        LOGGER->add_entry('Created custom cool_kid, coolest_kid and cooler_kid roles.');
     }
 }
