@@ -38,6 +38,9 @@ class ClassKid {
     }
 
     function getCountry($currentuser) {
+        if (empty($currentuser)) {
+            return '';
+        }
         $user_meta = get_userdata($currentuser->ID);
         if (!empty($user_meta)) {
             $country = $user_meta->country;
@@ -47,6 +50,9 @@ class ClassKid {
     }
 
     function getRole($currentuser) {
+        if (empty($currentuser)) {
+            return '';
+        }
         $user_meta = get_userdata($currentuser->ID);
         $user_roles = $user_meta->roles;
         return $user_roles;

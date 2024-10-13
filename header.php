@@ -4,7 +4,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
-    <?php if (!empty(bloginfo('description'))) { ?>
+    <?php if (!empty(get_bloginfo('description'))) { ?>
         <meta name="description" content="<?php bloginfo('description'); ?>">
     <?php } else { ?>
         <meta name="description" content="<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
