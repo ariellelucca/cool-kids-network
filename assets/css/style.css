@@ -328,7 +328,7 @@ html body div#home-main .kid-list #list-kids .card-kid .card-title {
   font-size: 3rem;
   font-weight: bold;
   text-decoration: underline;
-  color: var(--peach);
+  color: var(--primary-blue);
 }
 html body div#home-main .kid-list #list-kids .card-kid .card-body {
   color: var(--primary-blue);
