@@ -16,8 +16,8 @@ final class CustomRoles
 {
         
     function __construct() {
-        add_action('init', [$this, 'remove_basic_roles']);        
-        add_action('init', [$this, 'create_roles']);
+        add_action('after_switch_theme', [$this, 'remove_basic_roles']);        
+        add_action('after_switch_theme', [$this, 'create_roles']);
     }
 
     function remove_basic_roles()
