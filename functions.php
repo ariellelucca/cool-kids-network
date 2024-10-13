@@ -130,9 +130,11 @@ add_action('wp_logout','al_redirect_after_logout');
  */
 function al_user_logout_log(): void {
 	$user = wp_get_current_user();
-	LOGGER->add_entry("User ID $user->ID logged out");
+	if ($user && !empty($user) && '0' !== $user->ID) {
+		LOGGER->add_entry("User ID $user->ID logged out");
+	}
 }
-add_action('wp_logout', 'al_user_logout_log', 10);
+add_action('clear_auth_cookie', 'al_user_logout_log', 10);
 
 
 // Preload font CSS file
