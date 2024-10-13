@@ -9,13 +9,9 @@
     <?php } else { ?>
         <meta name="description" content="<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>">
     <?php } ?>
-    <?php
-    if (!is_front_page()) { ?>
-        <?php if (file_exists(get_template_directory() . '/assets/img/home-bg.jpg')) { ?>
-            <link rel="preload" as="image" href="<?php echo esc_attr(get_template_directory_uri() . '/assets/img/home-bg.jpg') ?>"  />
-        <?php } ?>
-    <?php }
-    ?>
+    <?php if (file_exists(get_template_directory() . '/assets/img/home-bg.webp')) { ?>
+        <link rel="preload" as="image" href="<?php echo esc_attr(get_template_directory_uri() . '/assets/img/home-bg.webp') ?>"  />
+    <?php } ?>
     <?php if (file_exists(get_template_directory() . '/assets/img/cool-kids-network-high-resolution-logo-transparent.png')) { ?>
         <link rel="preload" as="image" href="<?php echo esc_attr(get_template_directory_uri() . '/assets/img/cool-kids-network-high-resolution-logo-transparent.png') ?>"  />
     <?php } ?>

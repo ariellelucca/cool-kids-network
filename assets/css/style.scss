@@ -99,7 +99,7 @@ html {
             .dev-arielle {
                 a {
                     font-weight: bold;
-                    color: var(--peach);
+                    color: var(--primary-blue);
                     text-decoration: none;
                 }
             }
@@ -141,7 +141,7 @@ html {
             justify-content: center;
             flex-direction: column;
             gap: 50px;
-            background: url('../../assets/img/home-bg.jpg');
+            background: url('../../assets/img/home-bg.webp');
             background-size: cover;
             background-repeat: no-repeat;    
 
@@ -207,7 +207,7 @@ html {
                             background-color: var(--peach);
                             border: none;
                             border-radius: 5px;
-                            color: var(--black);
+                            color: var(--primary-blue);
                             text-transform: uppercase;
                             font-weight: bold;
                             font-size: 2rem;
@@ -243,7 +243,7 @@ html {
             justify-content: center;
             flex-direction: column;
             gap: 50px;
-            background: url('../../assets/img/home-bg.jpg');
+            background: url('../../assets/img/home-bg.webp');
             background-size: cover;
             background-repeat: no-repeat;    
 
