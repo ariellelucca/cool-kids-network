@@ -55,7 +55,7 @@ class ClassKid {
         }
         $user_meta = get_userdata($currentuser->ID);
         
-        if ('0' == $user_meta) {
+        if ('0' == $currentuser->ID) {
             return '';
         }
         
@@ -71,7 +71,7 @@ class ClassKid {
             return '';
         }
         $user_meta = get_userdata($currentuser->ID);
-        if ('0' == $user_meta) {
+        if ('0' == $currentuser->ID) {
             return '';
         }
         
