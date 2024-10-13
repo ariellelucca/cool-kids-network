@@ -99,7 +99,7 @@ html {
             .dev-arielle {
                 a {
                     font-weight: bold;
-                    color: var(--peach);
+                    color: var(--primary-blue);
                     text-decoration: none;
                 }
             }
@@ -141,7 +141,7 @@ html {
             justify-content: center;
             flex-direction: column;
             gap: 50px;
-            background: url('../../assets/img/home-bg.jpg');
+            background: url('../../assets/img/home-bg.webp');
             background-size: cover;
             background-repeat: no-repeat;    
 
@@ -161,7 +161,8 @@ html {
                     height: 40rem;
                 }
 
-                h2 {
+                h1 {
+                    font-size: 3rem;
                     font-weight: bold;
                     color: var(--peach);
                 }
@@ -207,7 +208,7 @@ html {
                             background-color: var(--peach);
                             border: none;
                             border-radius: 5px;
-                            color: var(--black);
+                            color: var(--primary-blue);
                             text-transform: uppercase;
                             font-weight: bold;
                             font-size: 2rem;
@@ -243,7 +244,7 @@ html {
             justify-content: center;
             flex-direction: column;
             gap: 50px;
-            background: url('../../assets/img/home-bg.jpg');
+            background: url('../../assets/img/home-bg.webp');
             background-size: cover;
             background-repeat: no-repeat;    
 
@@ -252,7 +253,7 @@ html {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                width: 70rem;
+                width: 30rem;
                 height: 50rem;
                 padding: 3rem;
                 border-radius: 10px;
@@ -264,7 +265,8 @@ html {
                     height: 40rem;
                 }
 
-                h2 {
+                h1 {
+                    font-size: 3rem;
                     font-weight: bold;
                     color: var(--peach);
                 }
@@ -274,7 +276,7 @@ html {
                         display: flex;
                         flex-direction: column;
 
-                        font-size: 4rem;
+                        font-size: 2rem;
 
                         @media (min-width: 992px) {
                             font-size: 2rem;
@@ -288,12 +290,13 @@ html {
 
                 p {
                     color: var(--white);
-                    font-size: 1.5rem;
+                    font-size: 1.8rem;
                     margin-top: 20px;
 
                     a {
                         text-decoration: none;
                         color: var(--peach);
+                        font-weight: bold;
                     }
                 }
             }

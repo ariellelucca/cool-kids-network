@@ -58,11 +58,6 @@ function al_enqueues(): void
 		get_stylesheet_directory_uri() . '/assets/bootstrap/css/bootstrap-reboot.min.css'
 	);
 
-	wp_enqueue_script(
-		'bootstrap-js',
-		get_stylesheet_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js',
-		array('jquery')
-	);
 
 	wp_enqueue_style(
 		'theme-style',
@@ -72,6 +67,17 @@ function al_enqueues(): void
 	wp_enqueue_style(
 		'theme-fonts',
 		get_stylesheet_directory_uri() . '/assets/css/fonts.min.css',
+	);
+	
+	wp_enqueue_script(
+		'bootstrap-js',
+		get_stylesheet_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js',
+		array('jquery'),
+		'1.0.0',
+		[ 
+			'footer' => true,
+			'strategy' => 'defer'
+		]
 	);
 }
 add_action('wp_enqueue_scripts', 'al_enqueues');
