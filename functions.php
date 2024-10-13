@@ -9,9 +9,11 @@ require __DIR__ . '/autoloader.php' ;
 
 use CoolKidsNetwork\Classes\RestAPIEndpoints\RestAPIEndpoints;
 use CoolKidsNetwork\Classes\CustomRoutes\CustomRoutes;
+use CoolKidsNetwork\Classes\CustomRoles\CustomRoles;
 use CoolKidsNetwork\Classes\NewUserRegister\NewUserRegister; 
 use CoolKidsNetwork\Classes\ActionLogger\ActionLogger;
 use CoolKidsNetwork\Classes\Logger\Logger;
+
 
 // Instantiate logger
 $logger = new ActionLogger;
