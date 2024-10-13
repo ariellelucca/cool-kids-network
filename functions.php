@@ -161,3 +161,6 @@ function al_login_failed($username, $error): void{
 	wp_redirect( home_url() . '/?login=failed' );
 }
 add_action( 'wp_login_failed', 'al_login_failed', 1, 2);
+
+// Hide admin bar
+add_filter('show_admin_bar', '__return_false');
