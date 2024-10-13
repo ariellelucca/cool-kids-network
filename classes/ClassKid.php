@@ -14,6 +14,10 @@ if (!defined('ABSPATH')) {
 class ClassKid {
 
     function getName($currentuser) {
+        if (empty($currentuser || !$currentuser)) {
+            return '';
+        }
+        
         if (!empty($currentuser->user_firstname)) {
             $firstname = $currentuser->user_firstname;
             return $firstname;
@@ -22,6 +26,10 @@ class ClassKid {
     }
 
     function getLastname($currentuser) {
+        if (empty($currentuser || !$currentuser)) {
+            return '';
+        }
+        
         if (!empty($currentuser->user_lastname)) {
             $user_lastname = $currentuser->user_lastname;
             return $user_lastname;
@@ -30,6 +38,10 @@ class ClassKid {
     }
 
     function getEmail($currentuser) {
+        if (empty($currentuser || !$currentuser)) {
+            return '';
+        }
+        
         if (!empty($currentuser->user_email)) {
             $user_email = $currentuser->user_email;
             return $user_email;
@@ -38,10 +50,15 @@ class ClassKid {
     }
 
     function getCountry($currentuser) {
-        if (empty($currentuser)) {
+        if (empty($currentuser || !$currentuser)) {
             return '';
         }
         $user_meta = get_userdata($currentuser->ID);
+        
+        if ('0' == $user_meta) {
+            return '';
+        }
+        
         if (!empty($user_meta)) {
             $country = $user_meta->country;
             return $country;
@@ -50,10 +67,14 @@ class ClassKid {
     }
 
     function getRole($currentuser) {
-        if (empty($currentuser)) {
+        if (empty($currentuser) || !$currentuser) {
             return '';
         }
         $user_meta = get_userdata($currentuser->ID);
+        if ('0' == $user_meta) {
+            return '';
+        }
+        
         $user_roles = $user_meta->roles;
         return $user_roles;
     }
