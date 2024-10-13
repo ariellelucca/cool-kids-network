@@ -15,6 +15,11 @@ use CoolKidsNetwork\Classes\ClassKid\ClassKid;
 $kid = new ClassKid;
 
 $current_user = wp_get_current_user();
+if (empty($currentuser || !$currentuser)) {
+    echo '<strong>User not defined</strong>';
+    die();
+}
+
 $name = $kid->getName($current_user);
 $lastname = $kid->getLastname($current_user);
 $country = $kid->getCountry($current_user);
