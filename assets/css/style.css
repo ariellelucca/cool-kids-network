@@ -136,7 +136,8 @@ html body main#sign-in .login-form {
     height: 40rem;
   }
 }
-html body main#sign-in .login-form h2 {
+html body main#sign-in .login-form h1 {
+  font-size: 3rem;
   font-weight: bold;
   color: var(--peach);
 }
@@ -228,7 +229,8 @@ html body main#sign-up .login-form {
     height: 40rem;
   }
 }
-html body main#sign-up .login-form h2 {
+html body main#sign-up .login-form h1 {
+  font-size: 3rem;
   font-weight: bold;
   color: var(--peach);
 }

@@ -32,7 +32,7 @@ get_header(); ?>
 
 <main id="sign-in">
     <div class="login-form">
-        <h2>Get in, kid!</h2>
+        <h1>Get in, kid!</h1>
         <?php
         // Display the login form
         wp_login_form(array(
