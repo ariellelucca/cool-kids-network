@@ -14,6 +14,8 @@ use CoolKidsNetwork\Classes\NewUserRegister\NewUserRegister;
 use CoolKidsNetwork\Classes\ActionLogger\ActionLogger;
 use CoolKidsNetwork\Classes\Logger\Logger;
 
+// Instantiate new roles
+$customRoles = new CustomRoles;
 
 // Instantiate logger
 $logger = new ActionLogger;
@@ -159,3 +161,6 @@ function al_login_failed($username, $error): void{
 	wp_redirect( home_url() . '/?login=failed' );
 }
 add_action( 'wp_login_failed', 'al_login_failed', 1, 2);
+
+// Hide admin bar
+add_filter('show_admin_bar', '__return_false');
