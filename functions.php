@@ -14,6 +14,8 @@ use CoolKidsNetwork\Classes\NewUserRegister\NewUserRegister;
 use CoolKidsNetwork\Classes\ActionLogger\ActionLogger;
 use CoolKidsNetwork\Classes\Logger\Logger;
 
+// Instantiate new roles
+$customRoles = new CustomRoles;
 
 // Instantiate logger
 $logger = new ActionLogger;
