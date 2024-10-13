@@ -17,7 +17,7 @@ if (is_user_logged_in()) {
 get_header(); ?>
 
 <main id="sign-up">
-    <div class="login-form">
+    <div class="login-form"> 
         <h1>Join the club! Tell me your best email</h1>
         <form id="register-form" method="post">
             <div class="form-group">

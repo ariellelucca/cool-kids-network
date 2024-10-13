@@ -13,7 +13,7 @@ require __DIR__ . '/autoloader.php' ;
 get_header(); ?>
 
 <main id="sign-in">
-    <div class="login-form">
+    <div class="login-form"> 
         <h1>Get in, kid!</h1>
         <?php
         // Display the login form
