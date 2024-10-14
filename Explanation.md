@@ -25,7 +25,6 @@ Fonts and some spacing were defined in 'rem', for accessibility purposes.
 - The theme's basic files were also created, such as 404, archive, author and others. Although, the content of these pages was not developed, as they were not part of the purpose at this time.
 - In terms of ajax and requests, I really like using REST API, so I did it that way. Even the functionality that allows the administrator user to change users' access levels has this integration.
 - For important actions - like login, logout, login failed, user registration, role management - there is a log system that registers the ID of the user, date and time of each event. This logs are available in a menu page called Activity Logs. They are registered under the theme/logs/customkidslog.log.
-There is a hook that is fired upon theme switching, which creates the log file. Depending on the host, there can be a permission error while creating the file. In this case, it can be created manually.
 
 * every REST API request has nonces checking;
 * every file is blocked for access outside of WordPress
@@ -36,7 +35,7 @@ There is a hook that is fired upon theme switching, which creates the log file. 
 - Implementation of tests (even though it is recommended in the assessment description, it would take a while to implement in this moment);
 - Paginate Activity Logs (for a real system, this file would get a looot bigger), and creating log files per day;
 - Send email to the user upon registration, using SMTP plugin;
-
+- Internationalization
 
 # USAGE
 The home page has a validation:
