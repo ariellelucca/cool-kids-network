@@ -11,43 +11,58 @@ if (!defined('ABSPATH')) {
 }
 
 class ActionLogger {
-
-    protected static $log = null;
+    private $log_file;
 
     public function __construct() {
+        $this->log_file = get_template_directory() . '/logs/customkidslog.log';
+
         add_action('after_switch_theme', [$this, 'file_checker']);
         add_action('admin_menu', [$this, 'menu_page']);
     }
 
     // Check if log file exists, if not, creates it
-    function file_checker(): void{
-        $logFile = get_template_directory() . '/logs/customkidslog.log';
+    public function file_checker()
+    {
+        if (!file_exists($this->log_file)) {
+            if (!is_dir(dirname($this->log_file))) {
+                error_log('Log directory does not exist: ' . dirname($this->log_file));
+            }
 
-        if (!file_exists($logFile)) {
-            if (touch($logFile)) {
-                $permissions = 0755;
-                $this->set_file_permissions($logFile, $permissions);
+            if (!fopen($this->log_file, 'w')) {
+                error_log('Failed to create log file: ' . $this->log_file);
             }
-            else {
-                error_log("Creation of log file failed");
+
+            if (!is_writable(dirname($this->log_file))) {
+                error_log('Log directory is not writable: ' . dirname($this->log_file));
             }
+
+            return;
         }
+
+        if (!is_writable($this->log_file)) {
+            error_log('Log file is not writable: ' . $this->log_file);
+            return;
+        }
+
+        error_log('Log file is ready: ' . $this->log_file);
     }
-    function set_file_permissions($file_path, $permissions) {
-        if (file_exists($file_path)) {
-            if (chmod($file_path, $permissions)) {
-                error_log("Changed permissions to $file_path.");
-            } else {
-                error_log("Failed to change permissions to $file_path.");
-            }
+
+
+    public function log_message($message)
+    {
+        if (is_writable($this->log_file)) {
+            $current_time = date('Y-m-d H:i:s');
+            $log_message = "[$current_time] $message" . PHP_EOL;
+            file_put_contents($this->log_file, $log_message, FILE_APPEND);
         } else {
-            error_log("File $file_path does not exists.");
+            error_log('Cannot write to log file: ' . $this->log_file);
         }
     }
 
 
     // Add a menu page that displays content of log
-    function menu_page() {
+    function menu_page()
+     {
         add_menu_page(
             'Activity Logs',
             'Activity Logs',
