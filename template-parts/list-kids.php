@@ -3,6 +3,8 @@
  * Template part that lists all cool kids
  */
 
+use CoolKidsNetwork\Classes\ClassKid\ClassKid;
+
 $current_user = wp_get_current_user();
 
 $kid = new ClassKid;
@@ -44,7 +46,7 @@ foreach ($users as $userkid) {
     <div class="col-12 col-md-4">
         <div class="card card-kid">
             <div class="card-body">
-                <h5 class="card-title"><?php echo esc_html($kidList->getName($userkid)) . ' ' . esc_html($kidList->getLastname($userkid)); ?></h5>
+                <h2 class="card-title"><?php echo esc_html($kidList->getName($userkid)) . ' ' . esc_html($kidList->getLastname($userkid)); ?></h2>
                 <p class="card-text">Country: <?php echo esc_html($kidList->getCountry($userkid)); ?></p>
                 <?php
                 if ( 'Administrator' === $currentkidrole || 'Coolest Kid' === $currentkidrole) { ?>

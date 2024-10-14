@@ -2,18 +2,19 @@
 /**
  * Custom login page
  */
-/* 
+
 if (is_user_logged_in()) {
     wp_redirect(home_url());
     exit;
-} */
+}
 
-wp_head();
-?>
+require __DIR__ . '/autoloader.php' ;
+
+get_header(); ?>
 
 <main id="sign-in">
-    <div class="login-form">
-        <h2>Get in, kid!</h2>
+    <div class="login-form"> 
+        <h1>Get in, kid!</h1>
         <?php
         // Display the login form
         wp_login_form(array(
@@ -34,5 +35,5 @@ wp_head();
 </main>
 
 <?php
-wp_footer();
+get_footer();
 ?>

@@ -8,18 +8,17 @@ if (!defined('ABSPATH')) {
 }
 
 // Check if the user is already logged in
-/* if (is_user_logged_in()) {
+if (is_user_logged_in()) {
     // Redirect to the homepage or any other page
     wp_redirect(home_url());
     exit;
-} */
+}
 
-wp_head();
+get_header(); ?>
 
-?>
 <main id="sign-up">
-    <div class="login-form">
-        <h2>Join the club! Tell me your best email</h2>
+    <div class="login-form"> 
+        <h1>Join the club! Tell me your best email</h1>
         <form id="register-form" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
@@ -29,15 +28,16 @@ wp_head();
                 <input type="submit" value="Register">
             </div>
         </form>
+        <p>Or get back to <a href="/sign-in" title="Link to login page" aria-label="Link to login page">login page</a></p>
+        
     </div>
 </main>
 
 <?php
 get_footer();
-
 ?>
 
-<!-- Script added directly on the page, so it wont load when not needed -->
+<!-- Script added directly on the page, so it wont load when not needed - also allow to create a nonce for REST API -->
 <script>
 
     jQuery(function ($) {
@@ -62,15 +62,16 @@ get_footer();
                 success: function (response) {
                     if ('User created successfully' === response) {
                         $('#modal-updated').modal('show');
-                        $('.request-response').html('Login created. <a href="/sign-in" title="Sign in page" aria-label="Sign in page">Click here</a> and go to signin page');
+                        $('.request-response').html('Login created. <a href="/sign-in" title="Sign in page" aria-label="Sign in page">Click here</a> and go to login page');
+                        $('input[type=submit]').prop('disabled', false);
                     }
                     else {
                         $('#modal-updated').modal('show');
-                        $('.request-response').html('Oooops, something went wrong!');
+                        $('.request-response').html('Oooops, something went wrong! Refresh the page and try again.');
+                        $('input[type=submit]').prop('disabled', false);
                     }
 
                     $('#register-form')[0].reset();
-                    $('input[type=submit]').prop('disabled', false);
                 },
                 error: function (error) {
                     $('#modal-updated').modal('show');
@@ -78,6 +79,10 @@ get_footer();
                 }
             });
         });
+
+        $('#modal-close').on('click', function (){
+            $('#modal-updated').modal('hide');
+        })
     });
 
 </script>

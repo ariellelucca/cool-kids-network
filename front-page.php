@@ -9,11 +9,17 @@ if (!is_user_logged_in()) {
     exit;
 }
 
-include __DIR__ . '/autoloader.php';
+require __DIR__ . '/autoloader.php' ;
+
+use CoolKidsNetwork\Classes\ClassKid\ClassKid;
+$kid = new ClassKid;
 
 $current_user = wp_get_current_user();
+if (empty($currentuser || !$currentuser)) {
+    echo '<strong>User not defined</strong>';
+    die();
+}
 
-$kid = new ClassKid;
 $name = $kid->getName($current_user);
 $lastname = $kid->getLastname($current_user);
 $country = $kid->getCountry($current_user);
@@ -46,20 +52,15 @@ get_header(); ?>
                 </div>
             </aside>
             <main class="col-sm-12 col-md-8 kid-list">
-                <div class="container">
+                <div class="container-fluid">
                     <?php
                     if (in_array('cool_kid', $role)) { ?>
-                        <p>Want to check other kid's info? Click the button below and become a Cooler Kid!</p>
-                        <button type="button" id="upgradeCoolerKid" aria-label="Become a Cooler Kid"
-                            name="Become a Cooler Kid">Click me and pay to upgrade</button>
+                        <p>Want to check other kid's info? Pay a Cooler Kid plan!</p>
                     <?php }
                     ?>
                     <?php
                     if (in_array('cooler_kid', $role)) { ?>
-                        <p>Want to upgrade and be a Coolest Kid and check all other user's info? Click the button below!</p>
-                        <button type="button" id="upgradeCoolerKid" aria-label="Become a Cooler Kid"
-                            name="Become a Cooler Kid">Click me and pay to upgrade</button>
-
+                        <p>Want to upgrade and be a Coolest Kid and check all other user's info?  Pay a Coolest Kid plan</p>
                     <?php }
                     if (in_array('administrator', $role)  || in_array('cooler_kid', $role) || in_array('coolest_kid', $role)) {
                         get_template_part('template-parts/list', 'kids');
